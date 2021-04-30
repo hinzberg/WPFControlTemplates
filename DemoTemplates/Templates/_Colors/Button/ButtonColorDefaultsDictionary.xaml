@@ -1,6 +1,5 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:local="clr-namespace:DemoTemplates.Templates._Colors.Button">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <SolidColorBrush x:Key="ButtonNormalBackground" Color="White" />
     <SolidColorBrush x:Key="ButtonNormalBorder" Color="Black" />
@@ -25,4 +24,5 @@
             </GradientStopCollection>
         </LinearGradientBrush.GradientStops>
     </LinearGradientBrush>
+    
 </ResourceDictionary>
