@@ -1,0 +1,173 @@
+﻿<Window x:Class="DemoTemplates.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DemoTemplates"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="WPF Control Templates Blue - Sample Window" Height="450" Width="850">
+    
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Templates/ControllTemplateDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            <BitmapImage x:Key="MenuIcon" UriSource="pack://application:,,,/Resources/MenuIcon.png" />
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Grid Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="110"/>
+            <ColumnDefinition Width="110"/>
+            <ColumnDefinition Width="110"/>
+            <ColumnDefinition Width="80"/>
+            <ColumnDefinition Width="80"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="110"/>
+            <ColumnDefinition Width="140"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel  Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="8">
+            <Menu Margin="-1">
+                <MenuItem Header="_File" >
+                    <MenuItem Header="_New">
+                        <MenuItem.Icon>
+                            <Image Source="{StaticResource MenuIcon}"/>
+                        </MenuItem.Icon>
+                        <MenuItem Header="_Save">
+                            <MenuItem Header="_Delete"/>
+                        </MenuItem>
+                    </MenuItem>
+                    <MenuItem Header="_Save"/>
+                    <MenuItem Header="_Quit" />
+                </MenuItem>
+                <MenuItem Header="_Edit" >
+                    <MenuItem Header="_Copy"/>
+                    <MenuItem Header="_Cut" />
+                    <MenuItem Header="_Paste" />
+                </MenuItem>
+            </Menu>
+        </StackPanel>
+
+        <ListView SelectionMode="Single" Height="150" Grid.Row="1" Grid.Column="0" 
+                  Grid.ColumnSpan="3"
+                  Margin="10,11" ItemsSource="{Binding ViewModelCollection}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn  Width="160">
+                        <GridViewColumnHeader Content="Column 1"/>
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel>
+                                    <CheckBox IsChecked="{Binding IsCheckedProperty, Mode=OneWay}"></CheckBox>
+                                </StackPanel>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+                    <GridViewColumn  Width="160">
+                        <GridViewColumnHeader Content="Column 2"/>
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel>
+                                    <CheckBox IsChecked="{Binding IsCheckedProperty, Mode=OneWay}"></CheckBox>
+                                </StackPanel>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+
+        <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="3" Margin="0,10,0,0" Grid.ColumnSpan="2">
+            <ComboBox  Width="120" ItemsSource="{Binding ComboBoxItems}" IsEnabled="True" Margin="0,0,0,5" MaxDropDownHeight="100"></ComboBox>
+            <ComboBox  Width="120" ItemsSource="{Binding ComboBoxItems}" IsEnabled="True" Margin="5"></ComboBox>
+            <ComboBox  Width="120" ItemsSource="{Binding ComboBoxItems}" IsEnabled="True" Margin="5"></ComboBox>
+        </StackPanel>
+
+        <ListBox Grid.Row="1" Grid.Column="5" ItemsSource="{Binding ComboBoxItems}" Margin="10" Grid.ColumnSpan="2"></ListBox>
+
+        <StackPanel Grid.Column="7" Grid.Row="1" Margin="5" Orientation="Vertical" Width="110">
+
+            <Button Content="Klick mich" Margin="5" />
+            <Button Content="Klick mich" Margin="5" />
+
+            <Button Content="Klick mich" Margin="5" ToolTip="Klasse ToolTip">
+                <Button.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="_File">
+                            <MenuItem Header="_New">
+                                <MenuItem.Icon>
+                                    <Image Source="{StaticResource MenuIcon}"/>
+                                </MenuItem.Icon>
+                                <MenuItem Header="_Save">
+                                    <MenuItem Header="_Delete"/>
+                                </MenuItem>
+                            </MenuItem>
+                            <MenuItem Header="_Save">
+                            </MenuItem>
+                            <MenuItem Header="_Quit" />
+                        </MenuItem>
+                        <MenuItem Header="_Edit" >
+                            <MenuItem Header="_Copy"/>
+                            <MenuItem Header="_Cut" />
+                            <MenuItem Header="_Paste" />
+                        </MenuItem>
+                    </ContextMenu>
+                </Button.ContextMenu>
+            </Button>
+        </StackPanel>
+
+
+        <StackPanel Margin="5" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
+            <Label FontWeight="Bold">Are you ready?</Label>
+            <RadioButton IsChecked="True">Yes</RadioButton>
+            <RadioButton>No</RadioButton>
+            <RadioButton>Maybe</RadioButton>
+            <CheckBox Margin="0,10,0,0">Input</CheckBox>
+            <CheckBox>Output</CheckBox>
+            <CheckBox>Putput</CheckBox>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2">
+            <PasswordBox Margin="3" Height="23" />
+            <PasswordBox Margin="3" Height="23" />
+            <PasswordBox Margin="3" Height="23" />
+        </StackPanel>
+
+        <StackPanel Orientation="Vertical" Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="2">
+            <TextBox Height="23" Margin="3"/>
+            <TextBox Height="23" Margin="3"/>
+            <TextBox Height="23" Margin="3" Text="Textbox"/>
+            <Label Height="23" Margin="3" Content="Label"/>
+        </StackPanel>
+
+
+        <Grid Name="ProgressBarContent" Grid.Row="3" Grid.Column="0" Margin="5" Grid.ColumnSpan="3">
+            <ProgressBar IsEnabled="False" x:Name="ProgressBar" Height="23" Value="{Binding ProgressBarValue, Mode=OneWay}"></ProgressBar>
+            <TextBlock Text="{Binding ElementName=ProgressBar, Path=Value, StringFormat={}{0:0} %}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        </Grid>
+
+        <StackPanel Orientation="Vertical" Grid.Row="3" Grid.Column="4" Grid.ColumnSpan="3" >
+            <Slider Value="1" Name="Slider"/>
+            <TextBlock  Text="{Binding ElementName=Slider, Path=Value, UpdateSourceTrigger=PropertyChanged}"  Width="40" />
+        </StackPanel>
+    </Grid>
+</Window>

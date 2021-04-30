@@ -1,0 +1,15 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/Templates/_Colors/Menu/MenuColorDictionary.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+
+    <ControlTemplate x:Key="CustomMenuTemplate" TargetType="{x:Type Menu}">
+        <Border BorderThickness="1" Background="{StaticResource TopMenuDefault}" BorderBrush="{StaticResource TopMenuDefaultBorder}">
+            <StackPanel ClipToBounds="True" Orientation="Horizontal" IsItemsHost="True" />
+        </Border>
+    </ControlTemplate>
+
+</ResourceDictionary>

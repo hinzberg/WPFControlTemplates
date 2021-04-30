@@ -1,0 +1,29 @@
+﻿ToDo Liste
+
+- Für alle Controlls die folgenden Default-Eigenschaften verwenden
+
+<Setter Property="FontFamily" Value="Arial"/>
+<Setter Property="FontSize" Value="14px"/>
+<Setter Property="SnapsToDevicePixels" Value="True"/>
+//DONE
+
+- Textbox ControllTemplate fehlt noch//DONE
+
+- Label ControllTemplate fehlt noch //DONE
+
+- Bei dem ausklapbarem Teil der Comboxbox fehlt ein Rahmen//DONE
+
+- Radiobutton Rand schwarz //DONE
+
+- Checkbox kleiner//DONE
+
+- Versuche mal, dem SelectStyle der ListView, ListBox einen Cornerradius von 2 zu geben. //DONE
+Für die Combobox habe ich das schon gemacht.
+
+- Progressbar Cornerradius = 2 //Done
+
+- In dem ListView neben den Columns hat der Header seltsame doppele Linien //DONE
+Bekommen wir die irgendwie weg?
+
+
+

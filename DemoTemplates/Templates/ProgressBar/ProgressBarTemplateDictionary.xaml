@@ -1,0 +1,23 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:DemoTemplates.Templates.ProgressBar">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/Templates/_Colors/ProgressBar/ProgressBarColorDictionary.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+
+    <ControlTemplate x:Key="CustomProgressBar" TargetType="{x:Type ProgressBar}">
+        <Grid Height="20" MinWidth="50" Background="{ StaticResource GridProgressBarBackground}">
+
+            <Border x:Name="PART_Track" BorderThickness="1"
+                                    BorderBrush="{StaticResource BarBorderBrush}" Background="{StaticResource MainBarBackground}" CornerRadius="2">
+            </Border>
+
+            <Border  BorderThickness="1" x:Name="PART_Indicator"
+                                    HorizontalAlignment="Left" Background="{StaticResource ProgressBarIndicatorAnimatedFill}"
+                                    BorderBrush="{StaticResource ProgressBarIndicatorAnimatedFill}" CornerRadius="2">
+            </Border>
+        </Grid>
+    </ControlTemplate>
+
+</ResourceDictionary>

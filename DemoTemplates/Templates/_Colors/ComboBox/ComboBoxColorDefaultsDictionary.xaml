@@ -1,0 +1,64 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+
+    <!--Hintergrund des Textes zum editieren-->
+    <SolidColorBrush x:Key="ComboBoxPartEditableTextBoxColor">transparent</SolidColorBrush>
+    
+    <!--Event Trigger-->
+    <SolidColorBrush x:Key="ComboBoxToggleButtonIsMouseOver">lightgray</SolidColorBrush>
+    <SolidColorBrush x:Key="ComboBoxToggleButtonIsIsChecked">gray</SolidColorBrush>
+    
+    <LinearGradientBrush x:Key="ComboBoxItemMousOver" StartPoint="0,0" EndPoint="0,1">
+        <LinearGradientBrush.GradientStops>
+            <GradientStopCollection>
+                <GradientStop Color="LightGray" Offset="0" />
+                <GradientStop Color="LightGray" Offset="0.5" />
+                <GradientStop Color="LightGray" Offset="1" />
+            </GradientStopCollection>
+        </LinearGradientBrush.GradientStops>
+    </LinearGradientBrush>
+
+
+    <!--Pfeil Farbe-->
+    <Color x:Key="ComboBoxArrowColor">black</Color>
+    
+    <!--ausgewähltes item welches angezeigt wird, davon der Hintergrund-->
+    <Color x:Key="ComboBoxToggleButtonInnerItemBackground">white</Color> 
+    
+    <!--Wenn die Comboboy deaktiviert ist, werden die Farben für den Pfeil, den Rahmen sowie den Hintergrund des Pfeiles verwendet. -->
+    <SolidColorBrush x:Key="ComboBoxToggleButtonIsEnabledBackground">#EEEEEE</SolidColorBrush>
+    <SolidColorBrush x:Key="ComboBoxToggleButtonIsEnabledBorderBrush">#AAAAAA</SolidColorBrush>
+    <SolidColorBrush x:Key="ComboBoxToggleButtonIsEnabledFill">#888888</SolidColorBrush>
+    
+    <!--Hintergrund aller items in der anzeige zum auswählen-->
+    <Color x:Key="ComboBoxDropDownBorderBrush">gray </Color>
+    <Color x:Key="ComboBoxDropDownBorderBackground">white</Color>
+    
+    <!--Rahmen Hintergrund der Combobox wo das Ausgewählte Element angezeigt wird-->
+    <LinearGradientBrush x:Key="ComboBoxToggleButtonBorderBackground" StartPoint="0,0" EndPoint="0,1">
+        <GradientStop Color="white" Offset="0" />
+        <GradientStop Color="white" Offset="1" />
+    </LinearGradientBrush>
+    
+    <!--Hintergrund des Borders wo der Pfeil drin angezeigt wird um die Combobox aufzuklappen-->
+    <LinearGradientBrush x:Key="ComboBoxToggleButtonBorderBrush" StartPoint="0,0" EndPoint="0,1">
+        <LinearGradientBrush.GradientStops>
+            <GradientStopCollection>
+                <GradientStop Color="Gray" Offset="0" />
+                <GradientStop Color="Gray" Offset="1" />
+            </GradientStopCollection>
+        </LinearGradientBrush.GradientStops>
+    </LinearGradientBrush>
+
+    <!--Hintergrund des RahmenBereiches für die DropDown Items-->
+    <LinearGradientBrush x:Key="DefaultComboBoxDropDownBackground" StartPoint="0,0" EndPoint="0,1">
+        <LinearGradientBrush.GradientStops>
+            <GradientStopCollection>
+                <GradientStop Color="Gray" Offset="0" />
+                <GradientStop Color="Gray" Offset="0.5" />
+                <GradientStop Color="Gray" Offset="1" />
+            </GradientStopCollection>
+        </LinearGradientBrush.GradientStops>
+    </LinearGradientBrush>
+</ResourceDictionary>

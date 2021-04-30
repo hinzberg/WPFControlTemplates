@@ -1,0 +1,8 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:DemoTemplates.Templates._Colors.ToolTip">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/Templates/_Colors/ToolTip/ToolTipColorDefaultsDictioanry.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>

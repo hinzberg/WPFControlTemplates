@@ -1,0 +1,182 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/Templates/_Colors/Menu/MenuColorDictionary.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+
+    <ControlTemplate x:Key="MenuItemControlTemplate1" TargetType="{x:Type MenuItem}">
+        <Border Name="templateRoot" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" 
+                Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+            <Grid Margin="-1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition MinWidth="22" SharedSizeGroup="MenuItemIconColumnGroup" Width="Auto"/>
+                    <ColumnDefinition Width="13"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="30"/>
+                    <ColumnDefinition SharedSizeGroup="MenuItemIGTColumnGroup" Width="Auto"/>
+                    <ColumnDefinition Width="20"/>
+                </Grid.ColumnDefinitions>
+
+                <ContentPresenter x:Name="Icon" Content="{TemplateBinding Icon}" ContentSource="Icon" HorizontalAlignment="Center" 
+                                  VerticalAlignment="Center"  Margin="3" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                <ContentPresenter x:Name="menuHeaderContainer" ContentTemplate="{TemplateBinding HeaderTemplate}" 
+                                  Content="{TemplateBinding Header}" Grid.Column="2" 
+                                  ContentStringFormat="{TemplateBinding HeaderStringFormat}" ContentSource="Header"
+                                  HorizontalAlignment="Left" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" 
+                                  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="Center"/>
+            </Grid>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="Icon" Value="{x:Null}">
+                <Setter Property="Visibility" TargetName="Icon" Value="Collapsed"/>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <ControlTemplate x:Key="topLevelHeaderBottomTemplate" TargetType="MenuItem">
+        <Border Name="Border">
+            <Grid>
+                <ContentPresenter Margin="15,3,15,3" ContentSource="Header"  RecognizesAccessKey="True" />
+                <Popup Name="Popup" Placement="Bottom" IsOpen="{TemplateBinding IsSubmenuOpen}" AllowsTransparency="True" Focusable="False" PopupAnimation="Fade">
+                    <Border Name="SubmenuBorder" SnapsToDevicePixels="True" Background="{StaticResource MenuItemDefaultBackground}" 
+                            BorderBrush="{StaticResource MenuItemBorderBrush}"  BorderThickness="1">
+                        <StackPanel IsItemsHost="True" KeyboardNavigation.DirectionalNavigation="Cycle" />
+                    </Border>
+                </Popup>
+            </Grid>
+        </Border>
+
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsSuspendingPopupAnimation" Value="true">
+                <Setter TargetName="Popup" Property="PopupAnimation" Value="None"/>
+            </Trigger>
+
+            <Trigger Property="IsMouseOver" Value="true">
+                <Setter TargetName="Border" Property="Background" Value="{StaticResource MenuItemIsMouseOverBackground}"/>
+                <Setter TargetName="Border" Property="BorderBrush" Value="{StaticResource MenuItemIsMouseOverBorder}"/>
+            </Trigger>
+
+            <Trigger SourceName="Popup" Property="Popup.AllowsTransparency" Value="True">
+                <Setter TargetName="SubmenuBorder" Property="CornerRadius" Value="0,0,0,0"/>
+                <Setter TargetName="SubmenuBorder" Property="Padding" Value="0,0,0,0"/>
+            </Trigger>
+
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Foreground" Value="{StaticResource MenuItemDisabledForeground}"/>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <ControlTemplate x:Key="submenuHeaderTemplate" TargetType="MenuItem">
+        <Border Name="Border" BorderThickness="1" BorderBrush="{StaticResource MenuItemBorderBrush}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" SharedSizeGroup="Icon"/>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" SharedSizeGroup="Shortcut"/>
+                    <ColumnDefinition Width="13"/>
+                </Grid.ColumnDefinitions>
+
+                <ContentPresenter Name="Icon" HorizontalAlignment="Center" VerticalAlignment="Center" Height="16" Width="16" Margin="3" ContentSource="Icon"/>
+
+                <ContentPresenter Name="HeaderHost" Grid.Column="1" Margin="0,2,0,0" ContentSource="Header" RecognizesAccessKey="True" VerticalAlignment="Center"/>
+
+                <TextBlock x:Name="InputGestureText" Grid.Column="2" Text="{TemplateBinding InputGestureText}" Margin="5,2,2,2" DockPanel.Dock="Right"/>
+
+                <Path Name="SubMenuArrow" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,2,0"
+                      Data="M 0 0 L 0 7 L 4 3.5 Z" Fill="{StaticResource MenuItemArrowBackground}" />
+
+                <Popup Name="Popup" Placement="Right" HorizontalOffset="0" IsOpen="{TemplateBinding IsSubmenuOpen}" 
+                       AllowsTransparency="True" Focusable="False" PopupAnimation="Fade">
+                    <Border Name="SubmenuBorder" SnapsToDevicePixels="True" Background="{StaticResource MenuItemDefaultBackground}" 
+                            BorderBrush="{StaticResource MenuItemDefaultBorder}" BorderThickness="1" >
+                        <StackPanel IsItemsHost="True" KeyboardNavigation.DirectionalNavigation="Cycle" />
+                    </Border>
+                </Popup>
+            </Grid>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="Icon" Value="{x:Null}">
+                <Setter TargetName="Icon" Property="Visibility" Value="Hidden"/>
+            </Trigger>
+            <Trigger Property="IsMouseOver" Value="true">
+                <Setter TargetName="Border" Property="Background" Value="{StaticResource MenuItemIsMouseOverBorder}"/>
+                <Setter TargetName="Border" Property="BorderBrush" Value="{StaticResource MenuItemIsMouseOverBorder}"/>
+            </Trigger>
+            <Trigger SourceName="Popup" Property="Popup.AllowsTransparency" Value="True">
+                <Setter TargetName="SubmenuBorder" Property="CornerRadius" Value="0"/>
+                <Setter TargetName="SubmenuBorder" Property="Padding" Value="0,0,0,0"/>
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="false">
+                <Setter Property="Foreground" Value="{StaticResource MenuItemDisabledForeground}"/>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <ControlTemplate x:Key="topLevelItemTemplate" TargetType="MenuItem">
+        <Border Name="Border">
+            <Grid>
+                <ContentPresenter Margin="6,3,6,3" ContentSource="Header" RecognizesAccessKey="True" VerticalAlignment="Center"/>
+            </Grid>
+        </Border>
+
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="true">
+                <Setter TargetName="Border" Property="Background"  Value="{StaticResource MenuItemIsMouseOverBackground}"/>
+                <Setter TargetName="Border" Property="BorderBrush" Value="{StaticResource MenuItemIsMouseOverBorder}"/>
+            </Trigger>
+
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Foreground" Value="{StaticResource MenuItemDisabledForeground}"/>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <ControlTemplate x:Key="submenuItemTemplate" TargetType="MenuItem">
+        <Border Name="Border" BorderThickness="1" BorderBrush="{StaticResource MenuItemBorderBrush}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" SharedSizeGroup="Icon"/>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" SharedSizeGroup="Shortcut"/>
+                    <ColumnDefinition Width="13"/>
+                </Grid.ColumnDefinitions>
+                
+                <ContentPresenter Name="Icon" HorizontalAlignment="Center" VerticalAlignment="Center" Height="16" Width="16" Margin="3" ContentSource="Icon"/>
+                
+                <ContentPresenter Name="HeaderHost" Grid.Column="1" ContentSource="Header" RecognizesAccessKey="True" VerticalAlignment="Center"/>
+                
+                <TextBlock x:Name="InputGestureText" Grid.Column="2" Text="{TemplateBinding InputGestureText}"
+                           Margin="5,2,0,2" DockPanel.Dock="Right" />
+            </Grid>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="Icon" Value="{x:Null}">
+                <Setter TargetName="Icon" Property="Visibility" Value="Hidden"/>
+            </Trigger>
+            
+            <Trigger Property="IsCheckable" Value="true">
+                <Setter TargetName="Icon" Property="Visibility" Value="Hidden"/>
+            </Trigger>
+            
+            <Trigger Property="IsMouseOver" Value="true">
+                <Setter TargetName="Border" Property="Background" Value="{StaticResource MenuItemIsMouseOverBackground}"/>
+                <Setter TargetName="Border" Property="BorderBrush" Value="{StaticResource MenuItemIsMouseOverBorder}"/>
+            </Trigger>
+            
+            <Trigger Property="IsEnabled" Value="false">
+                <Setter Property="Foreground" Value="{StaticResource MenuItemDisabledForeground}"/>
+            </Trigger>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsMouseOver" Value="true"/>
+                    <Condition Property="IsMouseOver" Value="true" SourceName="InputGestureText"/>
+                </MultiTrigger.Conditions>
+                <Setter TargetName="Border" Property="Background" Value="{StaticResource MenuItemIsMouseOverBackground}"/>
+                <Setter TargetName="Border" Property="BorderBrush" Value="{StaticResource MenuItemIsMouseOverBorder}"/>
+            </MultiTrigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+</ResourceDictionary>

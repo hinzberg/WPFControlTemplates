@@ -1,0 +1,43 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <SolidColorBrush x:Key="CheckBoxIsEnabledBackground">gray</SolidColorBrush>
+    <SolidColorBrush x:Key="CheckBoxIsEnabledBorder">black</SolidColorBrush>
+
+
+    <LinearGradientBrush x:Key="CheckBoxPressedBrush" EndPoint="0,1" StartPoint="0,0">
+        <GradientStop Color="darkgray" Offset="0.0"/>
+        <GradientStop Color="darkgray" Offset="0.1"/>
+        <GradientStop Color="darkgray" Offset="0.9"/>
+        <GradientStop Color="darkgray" Offset="1.0"/>
+    </LinearGradientBrush>
+
+    <LinearGradientBrush x:Key="CheckBoxPressedBorderBrush" EndPoint="0,1" StartPoint="0,0">
+        <GradientStop Color="#444" Offset="0.0"/>
+        <GradientStop Color="#888" Offset="1.0"/>
+    </LinearGradientBrush>
+
+    <LinearGradientBrush x:Key="CheckBoxNormalBrush" EndPoint="0,1" StartPoint="0,0">
+        <GradientStop Color="White" Offset="0" />
+        <GradientStop Color="White" Offset="0.5" />
+        <GradientStop Color="White" Offset="1" />
+    </LinearGradientBrush>
+
+    <LinearGradientBrush x:Key="CheckBoxMarkBrush" EndPoint="0,1" StartPoint="0,0">
+        <GradientStop Color="DarkGray" Offset="0" />
+        <GradientStop Color="DarkGray" Offset="0.5" />
+        <GradientStop Color="DarkGray" Offset="1" />
+    </LinearGradientBrush>
+
+    <LinearGradientBrush x:Key="CheckBoxNormalBorderBrush" EndPoint="0,1" StartPoint="0,0">
+        <GradientStop Color="Gray" Offset="0" />
+        <GradientStop Color="Gray" Offset="0.5" />
+        <GradientStop Color="Gray" Offset="1" />
+    </LinearGradientBrush>
+
+    <LinearGradientBrush x:Key="CheckBoxMouseOverBrush" EndPoint="0,1" StartPoint="0,0">
+        <GradientStop Color="LightGray" Offset="0.0"/>
+        <GradientStop Color="LightGray" Offset="1.0"/>
+    </LinearGradientBrush>
+
+</ResourceDictionary>

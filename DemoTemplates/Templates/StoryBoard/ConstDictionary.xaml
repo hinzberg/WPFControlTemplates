@@ -1,0 +1,10 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:DemoTemplates.Templates.StoryBoard"                    
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+
+    <sys:Double x:Key="DefaultButtonHeight">23</sys:Double>
+    <sys:Double x:Key="DefaultButtonWidth">55</sys:Double>
+    <Duration x:Key="DefaultDuration">0:0:1</Duration>
+
+</ResourceDictionary>

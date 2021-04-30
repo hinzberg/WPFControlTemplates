@@ -1,0 +1,85 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <LinearGradientBrush x:Key="MenuItemBackground" StartPoint="0,0" EndPoint="0,1">
+        <LinearGradientBrush.GradientStops>
+            <GradientStopCollection>
+                <GradientStop Color="Transparent" Offset="0" />
+                <GradientStop Color="Transparent" Offset="1" />
+            </GradientStopCollection>
+        </LinearGradientBrush.GradientStops>
+    </LinearGradientBrush>
+
+    <!--Aktuelle Default Farben für menuItem Stuff-->
+    <SolidColorBrush x:Key="MenuItemDefaultBorder" Color="Transparent"/>
+    <SolidColorBrush x:Key="MenuItemDisabledForeground" Color="DarkGray"/>
+
+    <LinearGradientBrush x:Key="MenuItemDefaultBackground" StartPoint="0,0" EndPoint="0,1">
+        <!--SubMenu Hintergrund(kompletter Sichtbereich)-->
+        <LinearGradientBrush.GradientStops>
+            <GradientStopCollection>
+                <GradientStop Color="#FFF4F4F4" Offset="0" />
+                <GradientStop Color="#FFF4F4F4" Offset="0.5" />
+                <GradientStop Color="#FFF4F4F4" Offset="1" />
+            </GradientStopCollection>
+        </LinearGradientBrush.GradientStops>
+    </LinearGradientBrush>
+
+    <LinearGradientBrush x:Key="MenuItemIsMouseOverBackground" StartPoint="0,0" EndPoint="0,1">
+        <!--oberster MenuPunkt-->
+        <LinearGradientBrush.GradientStops>
+            <GradientStopCollection>
+                <GradientStop Color="LightGray" Offset="0" />
+                <GradientStop Color="LightGray" Offset="0.5" />
+                <GradientStop Color="LightGray" Offset="1" />
+            </GradientStopCollection>
+        </LinearGradientBrush.GradientStops>
+    </LinearGradientBrush>
+
+    <LinearGradientBrush x:Key="MenuItemIsMouseOverBorder" StartPoint="0,0" EndPoint="0,1">
+        <!--alle weiterleitenden MenuPunkte-->
+        <LinearGradientBrush.GradientStops>
+            <GradientStopCollection>
+                <GradientStop Color="LightGray" Offset="0" />
+                <GradientStop Color="LightGray" Offset="0.5" />
+                <GradientStop Color="LightGray" Offset="1" />
+            </GradientStopCollection>
+        </LinearGradientBrush.GradientStops>
+    </LinearGradientBrush>
+
+    <LinearGradientBrush x:Key="MenuItemBorderBrush" StartPoint="0,0" EndPoint="0,1">
+        <LinearGradientBrush.GradientStops>
+            <GradientStopCollection>
+                <GradientStop Color="Transparent" Offset="0" />
+                <GradientStop Color="Transparent" Offset="0.5" />
+                <GradientStop Color="Transparent" Offset="1" />
+            </GradientStopCollection>
+        </LinearGradientBrush.GradientStops>
+    </LinearGradientBrush>
+
+   
+
+    <!--Oberpunkt->Hintergrund + Rahmen der Agezeigt wird-->
+    <LinearGradientBrush x:Key="TopMenuDefaultBorder" StartPoint="0,0" EndPoint="0,1">
+        <LinearGradientBrush.GradientStops>
+            <GradientStopCollection>
+                <GradientStop Color="Transparent" Offset="0" />
+                <GradientStop Color="Transparent" Offset="0.5" />
+                <GradientStop Color="Transparent" Offset="1" />
+            </GradientStopCollection>
+        </LinearGradientBrush.GradientStops>
+    </LinearGradientBrush>
+
+    <LinearGradientBrush x:Key="TopMenuDefault" StartPoint="0,0" EndPoint="0,1">
+        <LinearGradientBrush.GradientStops>
+            <GradientStopCollection>
+                <GradientStop Color="#FFF4F4F4" Offset="0" />
+                <GradientStop Color="#FFF4F4F4" Offset="0.5" />
+                <GradientStop Color="#FFF4F4F4" Offset="1" />
+            </GradientStopCollection>
+        </LinearGradientBrush.GradientStops>
+    </LinearGradientBrush>
+
+    <Brush x:Key="MenuItemArrowBackground">black</Brush>
+
+</ResourceDictionary>

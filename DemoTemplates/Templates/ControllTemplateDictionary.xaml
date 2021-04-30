@@ -1,0 +1,22 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    
+    <!--MenuStyleDictionary  enthält menu und menuitem-->
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/Templates/ListView/ListViewStyleDictionary.xaml"/>
+        <ResourceDictionary Source="/Templates/CheckBox/CheckBoxStyleDictionary.xaml"/>
+        <ResourceDictionary Source="/Templates/Button/ButonStyleDictionary.xaml"/>
+        <ResourceDictionary Source="/Templates/Menu/MenuStyleDictionary.xaml"/>
+        <ResourceDictionary Source="/Templates/ComboBox/ComboBoxStyleDictionary.xaml"/>
+        <ResourceDictionary Source="/Templates/ListBox/ListBoxStyleDictionary.xaml"/>
+        <ResourceDictionary Source="/Templates/ProgressBar/ProgressBarStyleDictionary.xaml"/>
+        <ResourceDictionary Source="/Templates/ContextMenu/ContextMenuStyleDictionary.xaml"/>
+        <ResourceDictionary Source="/Templates/Radiobutton/RadiobuttonStyleDictionary.xaml"/>
+        <ResourceDictionary Source="/Templates/PasswordBox/PasswordBoxStyleDictionary.xaml"/>
+        <ResourceDictionary Source="/Templates/ToolTip/ToolTipStyleDictionary.xaml"/>
+        <ResourceDictionary Source="/Templates/Slider/SliderStyleDictionary.xaml"/>
+        <ResourceDictionary Source="/Templates/Label/LabelStyleDictionary.xaml"/>
+        <ResourceDictionary Source="/Templates/TextBox/TextBoxStyleDictionary.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>
