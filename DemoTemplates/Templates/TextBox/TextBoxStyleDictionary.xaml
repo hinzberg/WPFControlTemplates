@@ -6,7 +6,7 @@
     <SolidColorBrush x:Key="BorderBrush" Color="#525E91"/>
 
     <ControlTemplate x:Key="CustomTextBoxTemplate" TargetType="{x:Type TextBoxBase}">
-        <Border Name="Border"  CornerRadius="2" Padding="2" BorderThickness="2"
+        <Border Name="Border"  CornerRadius="2" Padding="2" BorderThickness="1"
                             Background="{StaticResource Background}" BorderBrush="{StaticResource BorderBrush}">
             <ScrollViewer x:Name="PART_ContentHost" />
         </Border>
