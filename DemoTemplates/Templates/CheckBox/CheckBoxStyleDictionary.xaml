@@ -1,10 +1,73 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:local="clr-namespace:DemoTemplates.Templates.CheckBox">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
-    <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="/Templates/CheckBox/CheckBoxTemplateDictionary.xaml" />
-    </ResourceDictionary.MergedDictionaries>
+    <SolidColorBrush x:Key="CheckBoxIsEnabledBackground">gray</SolidColorBrush>
+    <SolidColorBrush x:Key="CheckBoxIsEnabledBorder">black</SolidColorBrush>
+
+    <SolidColorBrush x:Key="CheckBoxPressedBorderBrush" Color="#525E91"/>
+    <SolidColorBrush x:Key="CheckBoxNormalBorderBrush" Color="#525E91"/>
+    <SolidColorBrush x:Key="CheckBoxMarkBrush" Color="#525E91"/>
+
+    <SolidColorBrush x:Key="CheckBoxNormalBrush" Color="White"/>
+    <SolidColorBrush x:Key="CheckBoxPressedBrush" Color="#DEE5F6"/>
+    <SolidColorBrush x:Key="CheckBoxMouseOverBrush" Color="#DEE5F6"/>
+
+
+    <ControlTemplate x:Key="CustomCheckBoxTemplate" TargetType="{x:Type CheckBox}">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <BulletDecorator Grid.Column="0" Margin="0,0,8,0">
+                <BulletDecorator.Bullet>
+                    <Grid Width="13" Height="13">
+
+                        <Border x:Name="Border" 
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}" 
+                                BorderThickness="{TemplateBinding BorderThickness}"/>
+                        <Path x:Name="CheckMark" Fill="{StaticResource CheckBoxMarkBrush}" 
+                              Stroke="{StaticResource CheckBoxMarkBrush}" 
+                              HorizontalAlignment="Center"
+                              VerticalAlignment="Center"  
+                              StrokeThickness="0.1" 
+                              Data=
+                             "M 6.5,11 
+                          C   6,11 -3,3    6,8 
+                          C   6,8  15,-6 6.5,11"/>
+                    </Grid>
+                </BulletDecorator.Bullet>
+            </BulletDecorator>
+
+            <ContentPresenter Grid.Column="1" 
+                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                    Margin="{TemplateBinding Padding}" 
+                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}" 
+                    RecognizesAccessKey="True"/>
+        </Grid>
+
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsChecked" Value="false">
+                <Setter Property="Visibility" Value="Collapsed" TargetName="CheckMark"/>
+            </Trigger>
+
+            <Trigger Property="IsMouseOver" Value="true">
+                <Setter Property="Background" Value="{StaticResource CheckBoxMouseOverBrush}" TargetName="Border"/>
+            </Trigger>
+
+            <Trigger Property="IsPressed" Value="true">
+                <Setter Property="Background" Value="{StaticResource CheckBoxPressedBrush}" TargetName="Border"/>
+                <Setter Property="BorderBrush" Value="{StaticResource CheckBoxPressedBorderBrush}" TargetName="Border"/>
+            </Trigger>
+
+            <Trigger Property="IsEnabled" Value="false">
+                <Setter Property="Background" Value="{StaticResource CheckBoxIsEnabledBackground}" TargetName="Border"/>
+                <Setter Property="BorderBrush" Value="{StaticResource CheckBoxIsEnabledBorder}" TargetName="Border"/>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
 
 
     <Style x:Key="{x:Type CheckBox}" TargetType="CheckBox">
@@ -14,7 +77,6 @@
         <Setter Property="FocusVisualStyle" Value="{DynamicResource CheckBoxFocusVisual}"/>
         <Setter Property="Background" Value="{StaticResource  CheckBoxNormalBrush}"/>
         <Setter Property="BorderBrush" Value="{StaticResource CheckBoxNormalBorderBrush}"/>
-
         <Setter Property="Template" Value="{StaticResource CustomCheckBoxTemplate}"/>
     </Style>
 </ResourceDictionary>
