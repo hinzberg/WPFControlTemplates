@@ -123,10 +123,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Templates\RadioButton\RadioButtonTemplateDictionary.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Templates\ScrollBar\ScrollBarControllTemplateDictionary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -240,14 +236,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Templates\_Colors\PasswordBox\PasswordBoxColorDictionary.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Templates\_Colors\RadioButton\RadioButtonColorDefaultsDictionary.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Templates\_Colors\RadioButton\RadioButtonColorDictionary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

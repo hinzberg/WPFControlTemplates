@@ -22,21 +22,22 @@
 
             <BulletDecorator Grid.Column="0" Margin="0,0,8,0">
                 <BulletDecorator.Bullet>
-                    <Grid Width="13" Height="13">
+                    <Grid Width="14" Height="14">
 
                         <Border x:Name="Border" 
+                                CornerRadius="2"
                                 Background="{TemplateBinding Background}"
                                 BorderBrush="{TemplateBinding BorderBrush}" 
                                 BorderThickness="{TemplateBinding BorderThickness}"/>
+                        
                         <Path x:Name="CheckMark" Fill="{StaticResource CheckBoxMarkBrush}" 
-                              Stroke="{StaticResource CheckBoxMarkBrush}" 
                               HorizontalAlignment="Center"
-                              VerticalAlignment="Center"  
-                              StrokeThickness="0.1" 
-                              Data=
-                             "M 6.5,11 
-                          C   6,11 -3,3    6,8 
-                          C   6,8  15,-6 6.5,11"/>
+                              VerticalAlignment="Center"  >
+                            <Path.Data>
+                                <RectangleGeometry Rect="0,0 6 6" />
+                            </Path.Data>
+                        </Path>
+
                     </Grid>
                 </BulletDecorator.Bullet>
             </BulletDecorator>
