@@ -1,10 +1,64 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:local="clr-namespace:DemoTemplates.Templates.ListBox">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="/Templates/ListBox/ListBoxTemplateDictionary.xaml"/>
+        <ResourceDictionary Source="/Templates/ScrollViewer/ScrollViewerTemplateDictionary.xaml" />
     </ResourceDictionary.MergedDictionaries>
+
+    <SolidColorBrush x:Key="ListBoxBackground">White</SolidColorBrush>
+    <SolidColorBrush x:Key="ListBoxBorder" Color="#525E91"/>
+
+    <!--Event Trigger-->
+    <SolidColorBrush x:Key="ListBoxItemMouseOver" Color="#DEE5F6"/>
+    <SolidColorBrush x:Key="ListBoxItemFocused" Color="#DEE5F6"/>
+
+    <SolidColorBrush x:Key="ListBoxIsEnabledBackground">darkgray</SolidColorBrush>
+
+    <ControlTemplate x:Key="CustomListBoxTemplate" TargetType="ListBox">
+        <Border Name="Border" BorderThickness="1" CornerRadius="2" Background="{StaticResource ListBoxBackground}" BorderBrush="{StaticResource ListBoxBorder}">
+            <ScrollViewer Focusable="false" Template="{StaticResource ListBoxScrollViewer}">
+                <StackPanel  IsItemsHost="True" />
+            </ScrollViewer>
+        </Border>
+
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsEnabled" Value="false">
+
+                <Setter TargetName="Border" Property="Background" Value="{StaticResource ListBoxIsEnabledBackground}">
+                </Setter>
+            </Trigger>
+
+            <Trigger Property="IsGrouping" Value="true">
+                <Setter Property="ScrollViewer.CanContentScroll" Value="false" />
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <ControlTemplate x:Key="CustomListBoxItemTemplate" TargetType="ListBoxItem">
+
+        <Border x:Name="ContentBorder" BorderThickness="1">
+            <ContentPresenter Margin="2"/>
+        </Border>
+
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="true">
+                <Setter Property="Background" Value="{StaticResource ListBoxItemMouseOver}" TargetName="ContentBorder"/>
+                <Setter Property="CornerRadius" Value="2" TargetName="ContentBorder"/>
+            </Trigger>
+
+            <Trigger Property="IsFocused" Value="True">
+                <Setter Property="Background" Value="{StaticResource ListBoxItemFocused}" TargetName="ContentBorder"/>
+                <Setter Property="CornerRadius" Value="2" TargetName="ContentBorder"/>
+            </Trigger>
+
+            <Trigger Property="IsEnabled" Value="false">
+                <Setter Property="Background" Value="{StaticResource ListBoxIsEnabledBackground}" TargetName="ContentBorder"/>
+            </Trigger>
+
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+    
+    
 
     <Style x:Key="{x:Type ListBox}" TargetType="ListBox">
         <Setter Property="FontFamily" Value="Arial"/>
@@ -23,11 +77,6 @@
         <Setter Property="SnapsToDevicePixels" Value="True"/>
         <Setter Property="OverridesDefaultStyle" Value="true" />
         <Setter Property="Template" Value="{StaticResource CustomListBoxItemTemplate}"/>
-        <!--<Style.Triggers>
-            <Trigger Property="IsSelected" Value="True" >
-                <Setter Property="Background" Value="Red" />
-            </Trigger>
-        </Style.Triggers>-->
     </Style>
 
 </ResourceDictionary>

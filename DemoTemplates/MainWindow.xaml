@@ -67,7 +67,7 @@
 
         <ListView SelectionMode="Single" Height="150" Grid.Row="1" Grid.Column="0" 
                   Grid.ColumnSpan="3"
-                  Margin="10,11" ItemsSource="{Binding ViewModelCollection}">
+                  Margin="10" ItemsSource="{Binding ViewModelCollection}">
             <ListView.View>
                 <GridView>
                     <GridViewColumn  Width="160">
@@ -94,7 +94,6 @@
                 </GridView>
             </ListView.View>
         </ListView>
-
 
         <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="3" Margin="0,10,0,0" Grid.ColumnSpan="2">
             <ComboBox  Width="120" ItemsSource="{Binding ComboBoxItems}" IsEnabled="True" Margin="0,0,0,5" MaxDropDownHeight="100"></ComboBox>
@@ -136,38 +135,36 @@
         </StackPanel>
 
 
-        <StackPanel Margin="5" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
-            <Label FontWeight="Bold">Are you ready?</Label>
+        <StackPanel Margin="10" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
+            <TextBlock>RadioButton</TextBlock>
             <RadioButton IsChecked="True">Yes</RadioButton>
             <RadioButton>No</RadioButton>
-            <RadioButton>Maybe</RadioButton>
-            <CheckBox Margin="0,10,0,0">Input</CheckBox>
-            <CheckBox>Output</CheckBox>
-            <CheckBox>Putput</CheckBox>
+            <TextBlock>CheckBox</TextBlock>
+            <CheckBox IsChecked="True">Output</CheckBox>
+            <CheckBox>Input</CheckBox>
         </StackPanel>
 
         <StackPanel Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2">
+            <TextBlock>PasswordBox</TextBlock>
             <PasswordBox Margin="3" Height="23" />
-            <PasswordBox Margin="3" Height="23" />
-            <PasswordBox Margin="3" Height="23" />
+            <TextBlock>TextBox</TextBlock>
+            <TextBox Height="23" Margin="3"/>
         </StackPanel>
 
         <StackPanel Orientation="Vertical" Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="2">
-            <TextBox Height="23" Margin="3"/>
-            <TextBox Height="23" Margin="3"/>
-            <TextBox Height="23" Margin="3" Text="Textbox"/>
-            <Label Height="23" Margin="3" Content="Label"/>
+
         </StackPanel>
 
 
-        <Grid Name="ProgressBarContent" Grid.Row="3" Grid.Column="0" Margin="5" Grid.ColumnSpan="3">
-            <ProgressBar IsEnabled="False" x:Name="ProgressBar" Height="23" Value="{Binding ProgressBarValue, Mode=OneWay}"></ProgressBar>
-            <TextBlock Text="{Binding ElementName=ProgressBar, Path=Value, StringFormat={}{0:0} %}" HorizontalAlignment="Center" VerticalAlignment="Center" />
-        </Grid>
+        <StackPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" Margin="10">
+            <TextBlock>ProgressBar</TextBlock>
+            <ProgressBar IsEnabled="False" x:Name="ProgressBar" Height="23" Value="{Binding ProgressBarValue, Mode=OneWay}"/>
+        </StackPanel>
+        
+
 
         <StackPanel Orientation="Vertical" Grid.Row="3" Grid.Column="4" Grid.ColumnSpan="3" >
             <Slider Value="1" Name="Slider"/>
-            <TextBlock  Text="{Binding ElementName=Slider, Path=Value, UpdateSourceTrigger=PropertyChanged}"  Width="40" />
         </StackPanel>
     </Grid>
 </Window>
