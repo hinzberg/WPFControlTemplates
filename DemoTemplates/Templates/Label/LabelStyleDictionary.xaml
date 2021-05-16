@@ -2,9 +2,20 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:DemoTemplates.Templates.Label">
 
-    <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="/Templates/Label/LabelTemplateDictionary.xaml"/>
-    </ResourceDictionary.MergedDictionaries>
+
+    <ControlTemplate x:Key="CustomLabelTemplate" TargetType="Label">
+        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}"
+                CornerRadius="2" BorderThickness="{TemplateBinding BorderThickness}">
+            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                          RecognizesAccessKey="True"/>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsEnabled" Value="false">
+                <Setter Property="Foreground" Value="gray"/>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
 
     <Style x:Key="{x:Type Label}" TargetType="Label">
         <Setter Property="FontFamily" Value="Arial"/>

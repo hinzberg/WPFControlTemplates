@@ -17,7 +17,7 @@
         <Setter Property="OverridesDefaultStyle"  Value="True" />
         <Setter Property="KeyboardNavigation.TabNavigation" Value="None" />
         <Setter Property="FocusVisualStyle"  Value="{x:Null}" />
-        <Setter Property="MinHeight"  Value="23" />
+        <Setter Property="Height" Value="23"/>
         <Setter Property="AllowDrop" Value="true" />
         <Setter Property="FontFamily" Value="Arial"/>
         <Setter Property="FontSize" Value="14px"/>

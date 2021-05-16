@@ -74,6 +74,7 @@
     <Style x:Key="{x:Type CheckBox}" TargetType="CheckBox">
         <Setter Property="FontFamily" Value="Arial"/>
         <Setter Property="FontSize" Value="14px"/>
+        <Setter Property="Height" Value="18"/>
         <Setter Property="SnapsToDevicePixels" Value="True"/>
         <Setter Property="FocusVisualStyle" Value="{DynamicResource CheckBoxFocusVisual}"/>
         <Setter Property="Background" Value="{StaticResource  CheckBoxNormalBrush}"/>
