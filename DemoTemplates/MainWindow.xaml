@@ -78,8 +78,8 @@
                             <GridViewColumnHeader Content="Column 1"/>
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <StackPanel>
-                                        <CheckBox IsChecked="{Binding IsCheckedProperty, Mode=OneWay}"></CheckBox>
+                                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                        <Label Content="{Binding TextProperty, Mode=OneWay}"/>
                                     </StackPanel>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
@@ -89,8 +89,8 @@
                             <GridViewColumnHeader Content="Column 2"/>
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <StackPanel>
-                                        <CheckBox IsChecked="{Binding IsCheckedProperty, Mode=OneWay}"></CheckBox>
+                                    <StackPanel VerticalAlignment="Center">
+                                        <CheckBox IsChecked="{Binding IsCheckedProperty, Mode=OneWay}" VerticalAlignment="Center"/>
                                     </StackPanel>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>

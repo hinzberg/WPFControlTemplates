@@ -5,12 +5,12 @@
         <ResourceDictionary Source="/Templates/ScrollViewer/ScrollViewerTemplateDictionary.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
-    <SolidColorBrush x:Key="ListBoxBackground">White</SolidColorBrush>
+    <SolidColorBrush x:Key="ListBoxBackground" Color="White"/>
     <SolidColorBrush x:Key="ListBoxBorder" Color="#525E91"/>
 
     <!--Event Trigger-->
     <SolidColorBrush x:Key="ListBoxItemMouseOver" Color="#DEE5F6"/>
-    <SolidColorBrush x:Key="ListBoxItemFocused" Color="#DEE5F6"/>
+    <SolidColorBrush x:Key="ListBoxItemFocused">gray</SolidColorBrush>
 
     <SolidColorBrush x:Key="ListBoxIsEnabledBackground">darkgray</SolidColorBrush>
 
@@ -36,8 +36,8 @@
 
     <ControlTemplate x:Key="CustomListBoxItemTemplate" TargetType="ListBoxItem">
 
-        <Border x:Name="ContentBorder" BorderThickness="1">
-            <ContentPresenter Margin="2"/>
+        <Border x:Name="ContentBorder" Padding="2" Margin="1,0,1,0">
+            <ContentPresenter/>
         </Border>
 
         <ControlTemplate.Triggers>
@@ -57,8 +57,6 @@
 
         </ControlTemplate.Triggers>
     </ControlTemplate>
-    
-    
 
     <Style x:Key="{x:Type ListBox}" TargetType="ListBox">
         <Setter Property="FontFamily" Value="Arial"/>

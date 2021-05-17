@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace DemoTemplates
+﻿namespace DemoTemplates
 {
     public class MainWindowViewModel
     {
@@ -11,9 +6,11 @@ namespace DemoTemplates
         public MainWindowViewModel()
         {
             this.IsCheckedProperty = true;
+            this.TextProperty = "Hello World";
         }
 
         public bool IsCheckedProperty { get; private set; }
+        public string TextProperty { get; set; }
 
     }
 }
