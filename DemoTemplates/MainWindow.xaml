@@ -129,14 +129,13 @@
         </StackPanel>
 
 
-
-        
-
-        <StackPanel Grid.Column="0" Grid.Row="2" Margin="5" Orientation="Vertical" Width="110">
-
-
-            <Button Content="Klick mich" Margin="5" ToolTip="Klasse ToolTip">
-                <Button.ContextMenu>
+        <StackPanel Grid.Row="2" Grid.Column="0" Margin="10">
+            <Label Margin="0,5,0,0">ToolTip</Label>
+            <Rectangle ToolTip="This is your ToolTip"  Height="20" Width="20" Fill="#525E91"/>
+            
+            <Label Margin="0,5,0,0">ContextMenu</Label>
+            <Rectangle Height="20" Width="20" Fill="#DEE5F6">
+                <Rectangle.ContextMenu>
                     <ContextMenu>
                         <MenuItem Header="_File">
                             <MenuItem Header="_New">
@@ -157,8 +156,8 @@
                             <MenuItem Header="_Paste" />
                         </MenuItem>
                     </ContextMenu>
-                </Button.ContextMenu>
-            </Button>
+                </Rectangle.ContextMenu>
+            </Rectangle>
         </StackPanel>
 
 

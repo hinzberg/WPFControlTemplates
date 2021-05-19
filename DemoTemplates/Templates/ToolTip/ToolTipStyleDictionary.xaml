@@ -1,10 +1,18 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:local="clr-namespace:DemoTemplates.Templates.ToolTip">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
-    <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="/Templates/ToolTip/ToolTipTemplateDictionary.xaml" />
-    </ResourceDictionary.MergedDictionaries>
+    <SolidColorBrush x:Key="ForegroundColor" Color="Black"/>
+
+    <SolidColorBrush x:Key="ContentBackground" Color="#DEE5F6"/>
+
+    <SolidColorBrush x:Key="ContentBorderBrush" Color="#525E91"/>
+
+    <ControlTemplate x:Key="ToolTipTemplate" TargetType="ToolTip">
+        <Border Name="Border" BorderThickness="1" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}"
+                Background="{StaticResource ContentBackground}" BorderBrush="{StaticResource ContentBorderBrush}">
+            <ContentPresenter HorizontalAlignment="Center" Margin="4" VerticalAlignment="Top"/>
+        </Border>
+    </ControlTemplate>
 
     <Style x:Key="{x:Type ToolTip}" TargetType="ToolTip">
         <Setter Property="OverridesDefaultStyle" Value="true" />
