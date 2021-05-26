@@ -1,15 +1,13 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
-    <SolidColorBrush x:Key="ForegroundColor" Color="Black"/>
-
-    <SolidColorBrush x:Key="ContentBackground" Color="#DEE5F6"/>
-
-    <SolidColorBrush x:Key="ContentBorderBrush" Color="#525E91"/>
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/Templates/_Colors/ColorsDefinition.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
 
     <ControlTemplate x:Key="ToolTipTemplate" TargetType="ToolTip">
         <Border Name="Border" BorderThickness="1" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}"
-                Background="{StaticResource ContentBackground}" BorderBrush="{StaticResource ContentBorderBrush}">
+                Background="{StaticResource SecondaryBrush}" BorderBrush="{StaticResource PrimaryBrush}">
             <ContentPresenter HorizontalAlignment="Center" Margin="4" VerticalAlignment="Top"/>
         </Border>
     </ControlTemplate>
@@ -17,7 +15,7 @@
     <Style x:Key="{x:Type ToolTip}" TargetType="ToolTip">
         <Setter Property="OverridesDefaultStyle" Value="true" />
         <Setter Property="HasDropShadow" Value="True" />
-        <Setter Property="Foreground" Value="{StaticResource ForegroundColor}"/>
+        <Setter Property="Foreground" Value="{StaticResource ToolTipTextColor}"/>
         <Setter Property="FontFamily" Value="Arial"/>
         <Setter Property="FontSize" Value="14px"/>
         <Setter Property="SnapsToDevicePixels" Value="True"/>

@@ -1,29 +1,21 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/Templates/_Colors/ColorsDefinition.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
 
-    <!--<SolidColorBrush x:Key="TrackBorder"  Color="Red" />-->
-    <SolidColorBrush x:Key="GridProgressBarBackground"  Color="Transparent" />
-
-    <!--Value (Filled Area)-->
-    <SolidColorBrush x:Key="ProgressBarIndicatorAnimatedFill" Color="#525E91" />
-
-    <!--Background-->
-    <SolidColorBrush x:Key="MainBarBackground" Color="#DEE5F6" />
-
-    <!--Border-->
-    <SolidColorBrush x:Key="BarBorderBrush" Color="#525E91" />
 
     <ControlTemplate x:Key="CustomProgressBar" TargetType="{x:Type ProgressBar}">
-        <Grid Height="20" MinWidth="50" Background="{ StaticResource GridProgressBarBackground}">
+        <Grid Height="20" MinWidth="50">
 
             <Border x:Name="PART_Track" BorderThickness="1"
-                                    BorderBrush="{StaticResource BarBorderBrush}" Background="{StaticResource MainBarBackground}" CornerRadius="2">
+                                    BorderBrush="{StaticResource PrimaryBrush}" Background="{StaticResource SecondaryBrush}" CornerRadius="2">
             </Border>
 
             <Border  BorderThickness="1" x:Name="PART_Indicator"
-                                    HorizontalAlignment="Left" Background="{StaticResource ProgressBarIndicatorAnimatedFill}"
-                                    BorderBrush="{StaticResource ProgressBarIndicatorAnimatedFill}" CornerRadius="2">
+                                    HorizontalAlignment="Left" Background="{StaticResource PrimaryBrush}"
+                                    BorderBrush="{StaticResource PrimaryBrush}" CornerRadius="2">
             </Border>
         </Grid>
     </ControlTemplate>
@@ -31,7 +23,7 @@
 
     <Style x:Key="{x:Type ProgressBar}" TargetType="{x:Type ProgressBar}">
         <Setter Property="Template" Value="{StaticResource CustomProgressBar}"/>
-        <Setter Property="Background" Value="{StaticResource MainBarBackground}"/>
+        <Setter Property="Background" Value="{StaticResource PrimaryBrush}"/>
         <Setter Property="FontFamily" Value="Arial"/>
         <Setter Property="FontSize" Value="14px"/>
         <Setter Property="SnapsToDevicePixels" Value="True"/>
