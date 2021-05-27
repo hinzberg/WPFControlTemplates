@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:DemoTemplates"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="WPF Control Templates Blue - Sample Window" Height="450" Width="850">
+        Title="WPF Control Templates Blue - Sample Window" Height="470" Width="850">
     
     <Window.Resources>
         <ResourceDictionary>
@@ -32,15 +32,16 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="200"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
+
+        <StackPanel Background="LightGray" Grid.ColumnSpan="8" Grid.Row="6" Orientation="Horizontal">
+            <CheckBox Margin="5,0,0,0">Set disabled</CheckBox>
+        </StackPanel>
+
 
         <StackPanel Grid.Row="1" Grid.Column="0" Margin="10">
             <Label Margin="0,5,0,0">TextBox</Label>
@@ -69,9 +70,9 @@
             <ListBox  ItemsSource="{Binding ComboBoxItems}"/>
         </StackPanel>
 
-        <StackPanel Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="3" Margin="10">
+        <StackPanel Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="3" Grid.RowSpan="2" Margin="10">
             <Label Margin="0,5,0,0">ListBox</Label>
-            <ListView SelectionMode="Single" Height="Auto"  ItemsSource="{Binding ViewModelCollection}">
+            <ListView SelectionMode="Single" Height="200"  ItemsSource="{Binding ViewModelCollection}">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn  Width="160">
@@ -131,10 +132,10 @@
 
         <StackPanel Grid.Row="2" Grid.Column="0" Margin="10">
             <Label Margin="0,5,0,0">ToolTip</Label>
-            <Rectangle ToolTip="This is your ToolTip"  Height="20" Width="20" Fill="#525E91"/>
+            <Rectangle ToolTip="This is your ToolTip"  Height="20" Width="20" Fill="{StaticResource PrimaryBrush}"/>
             
             <Label Margin="0,5,0,0">ContextMenu</Label>
-            <Rectangle Height="20" Width="20" Fill="#DEE5F6">
+            <Rectangle Height="20" Width="20" Fill="{StaticResource SecondaryBrush}">
                 <Rectangle.ContextMenu>
                     <ContextMenu>
                         <MenuItem Header="_File">
@@ -160,18 +161,13 @@
             </Rectangle>
         </StackPanel>
 
-
-
-
         <StackPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" Margin="10">
             <TextBlock>ProgressBar</TextBlock>
             <ProgressBar IsEnabled="False" x:Name="ProgressBar" Height="23" Value="{Binding ProgressBarValue, Mode=OneWay}"/>
         </StackPanel>
         
-
-
-        <StackPanel Orientation="Vertical" Grid.Row="3" Grid.Column="4" Grid.ColumnSpan="3" >
-            <Slider Value="1" Name="Slider"/>
+        <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="4" Grid.ColumnSpan="3" HorizontalAlignment="Center" >
+            <Slider Value="1" Width="250" Name="Slider"/>
         </StackPanel>
     </Grid>
 </Window>

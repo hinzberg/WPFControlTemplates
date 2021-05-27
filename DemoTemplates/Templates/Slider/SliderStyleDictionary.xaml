@@ -1,27 +1,22 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
-    <SolidColorBrush x:Key="DefaultTrackBorder" Color="#DEE5F6"/>
-    <SolidColorBrush x:Key="DefaultTrackBackground" Color="#DEE5F6"/>
-
-    <!--Tick Marks-->
-    <SolidColorBrush x:Key="GlyphColor" Color="#525E91" />
-    
-    <SolidColorBrush x:Key="ScrollMarkStroke" Color="#525E91"/>
-    <SolidColorBrush x:Key="ScrollMarkFill" Color="#525E91"/>
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/Templates/_Colors/ColorsDefinition.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
 
     <ControlTemplate x:Key="ScrollMarkTemplateThumb" TargetType="{x:Type Thumb}">
-        <Path x:Name="ScrollMark" Data="M 0,0 L14,0 L7,14 z"  StrokeThickness="0.7" Stroke="{StaticResource ScrollMarkStroke}" Fill="{StaticResource ScrollMarkFill}" Cursor="Hand"></Path>
+        <Path x:Name="ScrollMark" Data="M 0,0 L14,0 L7,14 z"  StrokeThickness="0.7" Stroke="{StaticResource PrimaryBrush}" Fill="{StaticResource PrimaryBrush}" Cursor="Hand"></Path>
 
         <ControlTemplate.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Stroke" Value="#525E91" TargetName="ScrollMark"/>
-                <Setter Property="Fill" Value="#DEE5F6" TargetName="ScrollMark"/>
+                <Setter Property="Stroke" Value="{StaticResource PrimaryBrush}" TargetName="ScrollMark"/>
+                <Setter Property="Fill" Value="{StaticResource SecondaryBrush}" TargetName="ScrollMark"/>
             </Trigger>
 
             <Trigger Property="IsDragging" Value="True">
-                <Setter Property="Stroke" Value="#525E91" TargetName="ScrollMark"/>
-                <Setter Property="Fill" Value="#DEE5F6" TargetName="ScrollMark"/>
+                <Setter Property="Stroke" Value="{StaticResource PrimaryBrush}" TargetName="ScrollMark"/>
+                <Setter Property="Fill" Value="{StaticResource SecondaryBrush}" TargetName="ScrollMark"/>
             </Trigger>
         </ControlTemplate.Triggers>
     </ControlTemplate>
@@ -62,9 +57,9 @@
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
-            <TickBar x:Name="TopTick" SnapsToDevicePixels="True" Placement="Top" Height="4" Grid.Row="0" Visibility="Collapsed" Fill="{StaticResource GlyphColor}"/>
+            <TickBar x:Name="TopTick" SnapsToDevicePixels="True" Placement="Top" Height="4" Grid.Row="0" Visibility="Collapsed" Fill="{StaticResource PrimaryBrush}"/>
 
-            <Border x:Name="TrackBackground"  Margin="0" CornerRadius="2"  Height="4"  Grid.Row="1"  BorderThickness="1" BorderBrush="{StaticResource DefaultTrackBorder}" Background="{StaticResource DefaultTrackBackground}"/>
+            <Border x:Name="TrackBackground"  Margin="0" CornerRadius="2"  Height="4"  Grid.Row="1"  BorderThickness="1" BorderBrush="{StaticResource SecondaryBrush}" Background="{StaticResource SecondaryBrush}"/>
 
             <Track Grid.Row="1"  x:Name="PART_Track">
                 <Track.DecreaseRepeatButton>
@@ -78,7 +73,7 @@
                 </Track.IncreaseRepeatButton>
             </Track>
 
-            <TickBar x:Name="BottomTick" SnapsToDevicePixels="True" Height="4" Grid.Row="2" Placement="Bottom" Visibility="Collapsed" Fill="{StaticResource GlyphColor}"/>
+            <TickBar x:Name="BottomTick" SnapsToDevicePixels="True" Height="4" Grid.Row="2" Placement="Bottom" Visibility="Collapsed" Fill="{StaticResource PrimaryBrush}"/>
         </Grid>
         <ControlTemplate.Triggers>
             <Trigger Property="TickPlacement" Value="TopLeft">
@@ -101,9 +96,9 @@
                 <ColumnDefinition Width="Auto"  MinWidth="{TemplateBinding MinWidth}" />
                 <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
-            <TickBar x:Name="TopTick" SnapsToDevicePixels="True" Placement="Top" Height="4" Grid.Row="0" Visibility="Collapsed" Fill="{StaticResource GlyphColor}"/>
+            <TickBar x:Name="TopTick" SnapsToDevicePixels="True" Placement="Top" Height="4" Grid.Row="0" Visibility="Collapsed" Fill="{StaticResource PrimaryBrush}"/>
 
-            <Border x:Name="TrackBackground"  Margin="0" CornerRadius="2"  Width="4" Grid.Column="1"  BorderThickness="5" BorderBrush="{StaticResource DefaultTrackBorder}" Background="{StaticResource DefaultTrackBackground}"/>
+            <Border x:Name="TrackBackground"  Margin="0" CornerRadius="2"  Width="4" Grid.Column="1"  BorderThickness="5" BorderBrush="{StaticResource SecondaryBrush}" Background="{StaticResource SecondaryBrush}"/>
 
             <Track Grid.Column="1"  x:Name="PART_Track">
                 <Track.DecreaseRepeatButton>
@@ -117,7 +112,7 @@
                 </Track.IncreaseRepeatButton>
             </Track>
 
-            <TickBar x:Name="BottomTick" SnapsToDevicePixels="True" Height="4" Grid.Row="2" Placement="Bottom" Visibility="Collapsed" Fill="{StaticResource GlyphColor}"/>
+            <TickBar x:Name="BottomTick" SnapsToDevicePixels="True" Height="4" Grid.Row="2" Placement="Bottom" Visibility="Collapsed" Fill="{StaticResource PrimaryBrush}"/>
         </Grid>
         <ControlTemplate.Triggers>
             <Trigger Property="TickPlacement" Value="TopLeft">
@@ -137,8 +132,6 @@
 
     <Style x:Key="{x:Type Slider}" TargetType="Slider">
         <Setter Property="Foreground" Value="Black" />
-        <Setter Property="Margin" Value="5"/>
-        <Setter Property="Width" Value="200"/>
         <Setter Property="Maximum" Value="20"/>
         <Setter Property="TickPlacement" Value="BottomRight"/>
         <Setter Property="TickFrequency" Value="1"/>

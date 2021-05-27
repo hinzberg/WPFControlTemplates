@@ -4,73 +4,9 @@
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="/Templates/ScrollBar/ScrollBarStyleDictionary.xaml" />
         <ResourceDictionary Source="/Templates/ScrollViewer/ScrollViewerTemplateDictionary.xaml" />
+        <ResourceDictionary Source="/Templates/_Colors/ColorsDefinition.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
-    <SolidColorBrush x:Key="ListBoxItemlviBackgroundMouseOverBrush" Color="#DEE5F6"/>
-
-    <SolidColorBrush x:Key="ListBoxItemlviBackgroundSelectedBrush" Color="Silver" />
-
-    <SolidColorBrush x:Key="ListViewGridViewColumnHeaderIsEnabledHeaderBackground" Color="DarkGray" />
-    <SolidColorBrush x:Key="ListviewDisabledBorderLightColor" Color="DarkGray" />
-
-    <!--<listView Header normal-->
-    <LinearGradientBrush x:Key="ListViewGridViewColumnHeaderNormalBrush" StartPoint="0,0" EndPoint="0,1">
-        <GradientBrush.GradientStops>
-            <GradientStopCollection>
-                <GradientStop Color="white" Offset="0.0"/>
-                <GradientStop Color="white" Offset="0.1"/>
-                <GradientStop Color="white" Offset="0.9"/>
-                <GradientStop Color="white" Offset="1.0"/>
-            </GradientStopCollection>
-        </GradientBrush.GradientStops>
-    </LinearGradientBrush>
-
-    <!--<listView Header click brush-->
-    <LinearGradientBrush x:Key="ListViewGridViewColumnHeaderOnClickHeaderBrush" StartPoint="0,0" EndPoint="0,1">
-        <GradientBrush.GradientStops>
-            <GradientStopCollection>
-                <GradientStop Color="DarkGray" Offset="0.0"/>
-                <GradientStop Color="DarkGray" Offset="0.4"/>
-                <GradientStop Color="DarkGray" Offset="0.6"/>
-                <GradientStop Color="DarkGray" Offset="1.0"/>
-            </GradientStopCollection>
-        </GradientBrush.GradientStops>
-    </LinearGradientBrush>
-
-
-    <!--listview Header mouseover brush-->
-    <SolidColorBrush x:Key="ListViewGridViewColumnHeaderIsMouseOverBrush" Color="#DEE5F6"/>
-
-    <!--Column Header Botton Border-->
-    <SolidColorBrush x:Key="ListViewGridViewColumnHeaderNormalBorderBrush" Color="#525E91" />
-
-    <LinearGradientBrush x:Key="ListViewGridViewColumnHeaderLightBrush" StartPoint="0,0" EndPoint="0,1">
-        <GradientBrush.GradientStops>
-            <GradientStopCollection>
-                <GradientStop Color="Red" Offset="0.0"/>
-                <GradientStop Color="White" Offset="2"/>
-            </GradientStopCollection>
-        </GradientBrush.GradientStops>
-    </LinearGradientBrush>
-
-    <SolidColorBrush x:Key="ListViewHeaderBorder" Color="#525E91"/>
-    <SolidColorBrush x:Key="ColumnHeaderGripBrush" Color="#525E91"/>
-
-    <SolidColorBrush x:Key="ListViewHeaderBackground" Color="White"/>
-
-    <SolidColorBrush x:Key="ListViewGridViewHeaderBackground" Color="White"/>
-
-    <SolidColorBrush x:Key="ListViewGridViewHeaderBorder" Color="#525E91"/>
-
-    <SolidColorBrush x:Key="ListViewBackground" Color="White" />
-    <SolidColorBrush x:Key="ListViewBorder" Color="#525E91" />
-
-    <SolidColorBrush x:Key="ListBoxItemBackgroundBrush" Color="White" />
-    <SolidColorBrush x:Key="ListViewGridViewColumnHeaderBackground" Color="white" />
-    
-    <SolidColorBrush x:Key="ListViewGridViewColumnHeaderBorder" Color="Gray" />
-
-    
     <ControlTemplate x:Key="ThumbCustom" TargetType="{x:Type Thumb}">
         <Border Padding="{TemplateBinding Padding}"
                 Background="Transparent">
@@ -84,7 +20,7 @@
         <Border Name="Border"
                 BorderThickness="1" 
                 CornerRadius="2"
-                BorderBrush="{StaticResource ListViewBorder}" Background="{StaticResource ListViewBackground}">
+                BorderBrush="{StaticResource PrimaryBrush}" Background="{StaticResource ListViewBackground}">
             <ScrollViewer Style="{DynamicResource
                         {x:Static GridView.GridViewScrollViewerStyleKey}}">
                 <ItemsPresenter />
@@ -99,7 +35,7 @@
             <Trigger Property="IsEnabled"
                    Value="false">
                 <Setter TargetName="Border"
-                    Property="Background" Value="{StaticResource ListviewDisabledBorderLightColor}">
+                    Property="Background" Value="{StaticResource EnabledBrush}">
                 </Setter>
             </Trigger>
         </ControlTemplate.Triggers>
@@ -119,17 +55,17 @@
 
         <ControlTemplate.Triggers>
             <Trigger Property="ItemsControl.AlternationIndex" Value="1">
-                <Setter TargetName="Border" Property="Background" Value="{DynamicResource ListBoxItemBackgroundBrush}"></Setter>
-                <Setter TargetName="Border" Property="Background" Value="{DynamicResource ListBoxItemBackgroundBrush}"></Setter>
+                <Setter TargetName="Border" Property="Background" Value="{StaticResource ListBoxItemBackgroundBrush}"></Setter>
+                <Setter TargetName="Border" Property="Background" Value="{StaticResource ListBoxItemBackgroundBrush}"></Setter>
             </Trigger>
 
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter TargetName="Border" Property="Background" Value="{DynamicResource ListBoxItemlviBackgroundMouseOverBrush}"/>
+                <Setter TargetName="Border" Property="Background" Value="{StaticResource ListBoxItemlviBackgroundMouseOverBrush}"/>
                 <Setter TargetName="Border" Property="CornerRadius" Value="2"></Setter>
             </Trigger>
 
             <Trigger Property="IsSelected" Value="True">
-                <Setter TargetName="Border" Property="Background" Value="{DynamicResource ListBoxItemlviBackgroundSelectedBrush}"/>
+                <Setter TargetName="Border" Property="Background" Value="{StaticResource ListBoxItemlviBackgroundSelectedBrush}"/>
                 <Setter TargetName="Border" Property="CornerRadius" Value="2"></Setter>
             </Trigger>
         </ControlTemplate.Triggers>
@@ -148,7 +84,7 @@
         <Border Name="HeaderBorder"
                     BorderThickness="0,1,0,1" 
                 Background="{StaticResource ListViewGridViewColumnHeaderBackground}"
-                BorderBrush="{StaticResource ListViewGridViewColumnHeaderBorder}">
+                BorderBrush="{StaticResource PrimaryBrush}">
 
         </Border>
     </ControlTemplate>
@@ -157,8 +93,8 @@
         <Grid Height="21">
             <Border Name="HeaderBorder"
             BorderThickness="0,0,0,1"
-            BorderBrush="{DynamicResource ListViewGridViewColumnHeaderNormalBorderBrush}"
-            Background="{DynamicResource ListViewGridViewColumnHeaderLightBrush}"
+            BorderBrush="{StaticResource PrimaryBrush}"
+            Background="{StaticResource SecondaryBrush}"
             Padding="0,0,2,0">
                 <ContentPresenter Name="HeaderContent"
               Margin="0"
@@ -168,24 +104,24 @@
               SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
             </Border>
             <Thumb x:Name="PART_HeaderGripper" HorizontalAlignment="Right" Margin="0,0,-9,0" Style="{DynamicResource GridViewColumnHeaderGripper}"/>
-            <Rectangle VerticalAlignment="Stretch" Fill="{StaticResource ColumnHeaderGripBrush}" HorizontalAlignment="Right" Margin="0,2,0,2" Width="1"/>
+            <Rectangle VerticalAlignment="Stretch" Fill="{StaticResource PrimaryBrush}" HorizontalAlignment="Right" Margin="0,2,0,2" Width="1"/>
         </Grid>
         <ControlTemplate.Triggers>
             <Trigger Property="IsMouseOver" Value="true">
-                <Setter TargetName="HeaderBorder" Property="Background" Value="{DynamicResource ListViewGridViewColumnHeaderIsMouseOverBrush}"/>
+                <Setter TargetName="HeaderBorder" Property="Background" Value="{StaticResource SecondaryBrush}"/>
             </Trigger>
 
             <Trigger Property="IsMouseOver" Value="False">
-                <Setter TargetName="HeaderBorder"  Property="Background" Value="{DynamicResource ListViewGridViewColumnHeaderNormalBrush}"/>
+                <Setter TargetName="HeaderBorder"  Property="Background" Value="{StaticResource ListViewGridViewColumnHeaderNormalBrush}"/>
             </Trigger>
 
             <Trigger Property="IsPressed" Value="true">
-                <Setter TargetName="HeaderBorder"  Property="Background" Value="{DynamicResource ListViewGridViewColumnHeaderOnClickHeaderBrush}"/>
+                <Setter TargetName="HeaderBorder"  Property="Background" Value="{StaticResource ListViewGridViewColumnHeaderOnClickHeaderBrush}"/>
                 <Setter TargetName="HeaderContent" Property="Margin" Value="1,1,0,0"/>
             </Trigger>
 
             <Trigger Property="IsEnabled" Value="false">
-                <Setter TargetName="HeaderBorder" Property="Background" Value="{DynamicResource ListViewGridViewColumnHeaderIsEnabledHeaderBackground}"/>
+                <Setter TargetName="HeaderBorder" Property="Background" Value="{StaticResource EnabledBrush}"/>
             </Trigger>
 
         </ControlTemplate.Triggers>
@@ -206,7 +142,7 @@
         <Setter Property="SnapsToDevicePixels" Value="True"/>
         <Setter Property="Background" Value="{StaticResource ListViewGridViewHeaderBackground}">
         </Setter>
-        <Setter Property="BorderBrush" Value="{StaticResource ListViewGridViewHeaderBorder}">
+        <Setter Property="BorderBrush" Value="{StaticResource PrimaryBrush}">
         </Setter>
     </Style>
 
