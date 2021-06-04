@@ -96,7 +96,7 @@
                 </Border.Background>
             </Border>
 
-            <GridSplitter Grid.Column="0" Width="1" Margin="0,3,0,3" Background="{StaticResource PrimaryBrush}"/>
+            <GridSplitter x:Name="Splitter" Grid.Column="0" Width="1" Margin="0,3,0,3" Background="{StaticResource PrimaryBrush}"/>
 
             <Path x:Name="Arrow" Grid.Column="1" HorizontalAlignment="Center"
                   VerticalAlignment="Center" Data="M 0 0 L 4 4 L 8 0 Z" >
@@ -116,8 +116,9 @@
             <Trigger Property="IsEnabled" Value="false">
                 <Setter TargetName="Border" Property="Background" Value="{StaticResource EnabledBrush}" />
                 <Setter TargetName="Border" Property="BorderBrush" Value="{StaticResource EnabledBrush}"/>
-                <Setter Property="Foreground" Value="#888888"/>
+                <Setter Property="Foreground" Value="{StaticResource EnabledBrush}"/>
                 <Setter TargetName="Arrow" Property="Fill" Value="{StaticResource SecondaryEnabledBrush}" />
+                <Setter TargetName="Splitter" Property="Background" Value="{StaticResource EnabledBrush}" />
             </Trigger>
         </ControlTemplate.Triggers>
     </ControlTemplate>

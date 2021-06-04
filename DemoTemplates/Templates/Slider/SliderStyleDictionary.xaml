@@ -18,6 +18,12 @@
                 <Setter Property="Stroke" Value="{StaticResource PrimaryBrush}" TargetName="ScrollMark"/>
                 <Setter Property="Fill" Value="{StaticResource SecondaryBrush}" TargetName="ScrollMark"/>
             </Trigger>
+
+            <Trigger Property="IsEnabled" Value="false">
+                <Setter  TargetName="ScrollMark" Property="Stroke" Value="{StaticResource SecondaryEnabledBrush}"/>
+                <Setter TargetName="ScrollMark" Property="Fill" Value="{StaticResource SecondaryEnabledBrush}" />
+            </Trigger>
+
         </ControlTemplate.Triggers>
     </ControlTemplate>
 
@@ -86,6 +92,13 @@
                 <Setter TargetName="TopTick" Property="Visibility" Value="Visible" />
                 <Setter TargetName="BottomTick" Property="Visibility" Value="Visible" />
             </Trigger>
+
+            <Trigger Property="IsEnabled" Value="false">
+                <Setter TargetName="TrackBackground" Property="BorderBrush" Value="{StaticResource EnabledBrush}" />
+                <Setter TargetName="TrackBackground" Property="Background" Value="{StaticResource EnabledBrush}" />
+                <Setter TargetName="BottomTick" Property="Fill" Value="{StaticResource SecondaryEnabledBrush}" />
+            </Trigger>
+
         </ControlTemplate.Triggers>
     </ControlTemplate>
 

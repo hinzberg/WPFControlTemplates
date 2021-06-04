@@ -10,6 +10,14 @@
                             Background="{StaticResource TextBoxBackgroundBrush}" BorderBrush="{StaticResource PrimaryBrush}">
             <ScrollViewer x:Name="PART_ContentHost" />
         </Border>
+
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsEnabled" Value="false">
+                <Setter  TargetName="Border" Property="BorderBrush" Value="{StaticResource EnabledBrush}"/>
+                <Setter  TargetName="Border" Property="Background" Value="{StaticResource EnabledBrush}"/>
+            </Trigger>
+        </ControlTemplate.Triggers>
+        
     </ControlTemplate>
 
     <Style TargetType="{x:Type TextBox}">
@@ -22,7 +30,6 @@
         <Setter Property="FontFamily" Value="Arial"/>
         <Setter Property="FontSize" Value="14px"/>
         <Setter Property="SnapsToDevicePixels" Value="True"/>
-        <Setter Property="BorderBrush" Value="{StaticResource PrimaryBrush}"/>
         <Setter Property="Template" Value="{DynamicResource CustomTextBoxTemplate}"/>
     </Style>
 

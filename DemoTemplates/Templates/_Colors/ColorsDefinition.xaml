@@ -7,7 +7,7 @@
     <!--<SolidColorBrush x:Key="PrimaryBrush" Color="Red"/>
     <SolidColorBrush x:Key="SecondaryBrush" Color="Green"/>-->
     
-    <SolidColorBrush x:Key="EnabledBrush" Color="Silver"/>
+    <SolidColorBrush x:Key="EnabledBrush" Color="Silver" Opacity="0.5"/>
     <SolidColorBrush x:Key="SecondaryEnabledBrush" Color="Gray"/>
 
     <!-- Button-->
@@ -25,7 +25,7 @@
     <SolidColorBrush x:Key="TextBoxBackgroundBrush" Color="White"/>
 
     <!--  ToolTip-->
-    <SolidColorBrush x:Key="ToolTipTextColor" Color="White"/>
+    <SolidColorBrush x:Key="ToolTipTextColor" Color="#525E91"/>
 
     <!-- ComboBox-->
     <Color x:Key="ComboBoxArrowColor">white</Color>
@@ -48,7 +48,7 @@
     <SolidColorBrush x:Key="ListViewGridViewColumnHeaderOnClickHeaderBrush" Color="#DEE5F6" />
     <SolidColorBrush x:Key="ListViewGridViewColumnHeaderNormalBrush" Color="White" />
 
-
-    
+    <!-- Scrollbar-->
+    <SolidColorBrush x:Key="ScrollBarBackground" Color="White"/>
 
 </ResourceDictionary>

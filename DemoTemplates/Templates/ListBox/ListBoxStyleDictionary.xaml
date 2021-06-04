@@ -7,7 +7,9 @@
     </ResourceDictionary.MergedDictionaries>
 
     <ControlTemplate x:Key="CustomListBoxTemplate" TargetType="ListBox">
-        <Border Name="Border" BorderThickness="1" CornerRadius="2" Background="{StaticResource ListBoxBackground}" BorderBrush="{StaticResource PrimaryBrush}">
+        <Border Name="Border" BorderThickness="1" CornerRadius="2" 
+                Background="{StaticResource ListBoxBackground}" 
+                BorderBrush="{StaticResource PrimaryBrush}">
             <ScrollViewer Focusable="false" Template="{StaticResource ListBoxScrollViewer}">
                 <StackPanel  IsItemsHost="True" />
             </ScrollViewer>
@@ -15,9 +17,8 @@
 
         <ControlTemplate.Triggers>
             <Trigger Property="IsEnabled" Value="false">
-
-                <Setter TargetName="Border" Property="Background" Value="{StaticResource EnabledBrush}">
-                </Setter>
+                <Setter TargetName="Border" Property="Background" Value="{StaticResource EnabledBrush}"/>
+                <Setter TargetName="Border" Property="BorderBrush" Value="{StaticResource EnabledBrush}"/>
             </Trigger>
 
             <Trigger Property="IsGrouping" Value="true">
@@ -41,10 +42,6 @@
             <Trigger Property="IsFocused" Value="True">
                 <Setter Property="Background" Value="{StaticResource ListBoxItemSelected}" TargetName="ContentBorder"/>
                 <Setter Property="CornerRadius" Value="2" TargetName="ContentBorder"/>
-            </Trigger>
-
-            <Trigger Property="IsEnabled" Value="false">
-                <Setter Property="Background" Value="{StaticResource EnabledBrush}" TargetName="ContentBorder"/>
             </Trigger>
 
         </ControlTemplate.Triggers>

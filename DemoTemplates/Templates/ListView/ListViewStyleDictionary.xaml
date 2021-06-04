@@ -34,9 +34,8 @@
             </Trigger>
             <Trigger Property="IsEnabled"
                    Value="false">
-                <Setter TargetName="Border"
-                    Property="Background" Value="{StaticResource EnabledBrush}">
-                </Setter>
+                <Setter TargetName="Border" Property="Background" Value="{StaticResource EnabledBrush}"/>
+                <Setter TargetName="Border" Property="BorderBrush" Value="{StaticResource EnabledBrush}"/>
             </Trigger>
         </ControlTemplate.Triggers>
     </ControlTemplate>
@@ -85,8 +84,8 @@
                     BorderThickness="0,1,0,1" 
                 Background="{StaticResource ListViewGridViewColumnHeaderBackground}"
                 BorderBrush="{StaticResource PrimaryBrush}">
-
         </Border>
+
     </ControlTemplate>
 
     <ControlTemplate x:Key="GridViewColumnHeaderCustom" TargetType="GridViewColumnHeader">
@@ -103,8 +102,8 @@
               RecognizesAccessKey="True"                                              
               SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
             </Border>
-            <Thumb x:Name="PART_HeaderGripper" HorizontalAlignment="Right" Margin="0,0,-9,0" Style="{DynamicResource GridViewColumnHeaderGripper}"/>
-            <Rectangle VerticalAlignment="Stretch" Fill="{StaticResource PrimaryBrush}" HorizontalAlignment="Right" Margin="0,2,0,2" Width="1"/>
+            <Thumb x:Name="PART_HeaderGripper"  HorizontalAlignment="Right" Margin="0,0,-9,0" Style="{DynamicResource GridViewColumnHeaderGripper}"/>
+            <Rectangle x:Name="Gripper" VerticalAlignment="Stretch" Fill="{StaticResource PrimaryBrush}" HorizontalAlignment="Right" Margin="0,2,0,2" Width="1"/>
         </Grid>
         <ControlTemplate.Triggers>
             <Trigger Property="IsMouseOver" Value="true">
@@ -121,7 +120,9 @@
             </Trigger>
 
             <Trigger Property="IsEnabled" Value="false">
-                <Setter TargetName="HeaderBorder" Property="Background" Value="{StaticResource EnabledBrush}"/>
+                <Setter TargetName="HeaderBorder" Property="Background" Value="Transparent"/>
+                <Setter TargetName="Gripper" Property="Fill" Value="{StaticResource EnabledBrush}"/>
+                <Setter TargetName="HeaderBorder" Property="BorderBrush" Value="{StaticResource EnabledBrush}"/>
             </Trigger>
 
         </ControlTemplate.Triggers>
@@ -140,10 +141,14 @@
         <Setter Property="FontFamily" Value="Arial"/>
         <Setter Property="FontSize" Value="14px"/>
         <Setter Property="SnapsToDevicePixels" Value="True"/>
-        <Setter Property="Background" Value="{StaticResource ListViewGridViewHeaderBackground}">
-        </Setter>
-        <Setter Property="BorderBrush" Value="{StaticResource PrimaryBrush}">
-        </Setter>
+        <Setter Property="Background" Value="{StaticResource ListViewGridViewHeaderBackground}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource PrimaryBrush}"/>
+        <Style.Triggers>
+            <Trigger Property="IsEnabled" Value="false">
+                <Setter Property="Background" Value="{StaticResource EnabledBrush}"/>
+            </Trigger>
+        </Style.Triggers>
+
     </Style>
 
     <Style x:Key="{x:Type GridViewColumnHeader}" TargetType="GridViewColumnHeader">

@@ -36,6 +36,12 @@
                 <Setter Property="Fill" Value="{StaticResource SecondaryBrush}" TargetName="Border"/>
             </Trigger>
 
+            <Trigger Property="IsEnabled" Value="false">
+                <Setter  TargetName="Border" Property="Fill" Value="{StaticResource EnabledBrush}"/>
+                <Setter TargetName="Border" Property="Stroke" Value="{StaticResource EnabledBrush}" />
+                <Setter TargetName="CheckMark" Property="Fill" Value="{StaticResource SecondaryEnabledBrush}" />
+            </Trigger>
+
         </ControlTemplate.Triggers>
     </ControlTemplate>
 

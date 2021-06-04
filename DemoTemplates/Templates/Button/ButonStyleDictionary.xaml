@@ -24,7 +24,8 @@
                 <Setter Property="Foreground" Value="{StaticResource ButtonClickTextBrush}"/>
             </Trigger>
             <Trigger Property="IsEnabled" Value="False">
-                <Setter Property="Opacity" TargetName="grid" Value="0.80"/>
+                <Setter Property="Background" TargetName="border" Value="{StaticResource EnabledBrush}"/>
+                <Setter Property="Foreground" Value="{StaticResource SecondaryEnabledBrush}"/>
             </Trigger>
         </ControlTemplate.Triggers>
     </ControlTemplate>

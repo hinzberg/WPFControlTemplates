@@ -39,40 +39,40 @@
         </Grid.RowDefinitions>
 
         <StackPanel Background="LightGray" Grid.ColumnSpan="8" Grid.Row="6" Orientation="Horizontal">
-            <CheckBox Margin="5,0,0,0">Set disabled</CheckBox>
+            <CheckBox Margin="5,0,0,0" IsChecked="{Binding ControlsEnabled}">Enabled</CheckBox>
         </StackPanel>
 
 
         <StackPanel Grid.Row="1" Grid.Column="0" Margin="10">
             <Label Margin="0,5,0,0">TextBox</Label>
-            <TextBox />
+            <TextBox IsEnabled="{Binding ControlsEnabled}" />
             <Label Margin="0,5,0,0">PasswordBox</Label>
-            <PasswordBox  />
+            <PasswordBox IsEnabled="{Binding ControlsEnabled}"  />
             <Label Margin="0,5,0,0">ComboBox</Label>
-            <ComboBox ItemsSource="{Binding ComboBoxItems}" IsEnabled="True"  MaxDropDownHeight="100"/>
+            <ComboBox ItemsSource="{Binding ComboBoxItems}"  IsEnabled="{Binding ControlsEnabled}"  MaxDropDownHeight="100"/>
             <Label Margin="0,5,0,0">Button</Label>
-            <Button Content="Click Me"/>
+            <Button Content="Click Me" IsEnabled="{Binding ControlsEnabled}"/>
         </StackPanel>
 
         <StackPanel Grid.Row="1" Grid.Column="1" Margin="10">
             <Label Margin="0,5,0,0">RadioButton</Label>
-            <RadioButton IsChecked="True">Yes</RadioButton>
-            <RadioButton>No</RadioButton>
-            <RadioButton>Maybe</RadioButton>
+            <RadioButton IsChecked="True" IsEnabled="{Binding ControlsEnabled}">Yes</RadioButton>
+            <RadioButton IsEnabled="{Binding ControlsEnabled}">No</RadioButton>
+            <RadioButton IsEnabled="{Binding ControlsEnabled}">Maybe</RadioButton>
             <Label Margin="0,5,0,0">CheckBox</Label>
-            <CheckBox IsChecked="True">Bacon</CheckBox>
-            <CheckBox>Cheese</CheckBox>
-            <CheckBox>Onions</CheckBox>
+            <CheckBox IsChecked="True" IsEnabled="{Binding ControlsEnabled}">Bacon</CheckBox>
+            <CheckBox IsEnabled="{Binding ControlsEnabled}">Cheese</CheckBox>
+            <CheckBox IsEnabled="{Binding ControlsEnabled}">Onions</CheckBox>
         </StackPanel>
 
         <StackPanel Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Margin="10">
             <Label Margin="0,5,0,0">ListBox</Label>
-            <ListBox  ItemsSource="{Binding ComboBoxItems}"/>
+            <ListBox  ItemsSource="{Binding ComboBoxItems}" IsEnabled="{Binding ControlsEnabled}"/>
         </StackPanel>
 
         <StackPanel Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="3" Grid.RowSpan="2" Margin="10">
             <Label Margin="0,5,0,0">ListBox</Label>
-            <ListView SelectionMode="Single" Height="200"  ItemsSource="{Binding ViewModelCollection}">
+            <ListView SelectionMode="Single" Height="200"  ItemsSource="{Binding ViewModelCollection}" IsEnabled="{Binding ControlsEnabled}">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn  Width="160">
@@ -163,11 +163,11 @@
 
         <StackPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" Margin="10">
             <TextBlock>ProgressBar</TextBlock>
-            <ProgressBar IsEnabled="False" x:Name="ProgressBar" Height="23" Value="{Binding ProgressBarValue, Mode=OneWay}"/>
+            <ProgressBar x:Name="ProgressBar" Height="23" Value="{Binding ProgressBarValue}" IsEnabled="{Binding ControlsEnabled}" />
         </StackPanel>
         
         <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="4" Grid.ColumnSpan="3" HorizontalAlignment="Center" >
-            <Slider Value="1" Width="250" Name="Slider"/>
+            <Slider Value="1" Width="250" Name="Slider" IsEnabled="{Binding ControlsEnabled}"/>
         </StackPanel>
     </Grid>
 </Window>

@@ -28,39 +28,44 @@ namespace DemoTemplates
             this.ViewModelCollection.Add(new MainWindowViewModel());
 
             this.ComboBoxItems = new List<string>();
-            ComboBoxItems.Add("c");
-            ComboBoxItems.Add("b");
-            ComboBoxItems.Add("a5 ist ein guter VALUE");
-            ComboBoxItems.Add("a4");
-            ComboBoxItems.Add("a3");
-            ComboBoxItems.Add("a2");
-            ComboBoxItems.Add("a1");
+            ComboBoxItems.Add("London");
+            ComboBoxItems.Add("Paris");
+            ComboBoxItems.Add("New York");
+            ComboBoxItems.Add("Berlin");
+            ComboBoxItems.Add("Tokyo");
+            ComboBoxItems.Add("Rom");
+            ComboBoxItems.Add("Amsterdam");
 
             Thread ProgressBarFillingThread = new Thread(this.FillProgressBar);
             ProgressBarFillingThread.IsBackground = true;//Info beim schließen des fenster stoppt die property den thread!
             ProgressBarFillingThread.Start();
+
+            this.ControlsEnabled = true;
 
         }
         public List<string> ComboBoxItems { get; set; }
 
         public ObservableCollection<MainWindowViewModel> ViewModelCollection { get; set; }
 
-        private double _ProgressBarValue;
+        public bool ControlsEnabled
+        {
+            get => base.GetProperty<bool>(nameof(ControlsEnabled));
+            set
+            {
+                base.SetProperty(nameof(ControlsEnabled), value);
+            }
+        }
+
 
         public double ProgressBarValue
         {
-            private set
+            get => base.GetProperty<double>(nameof(ProgressBarValue));
+            set
             {
-                this._ProgressBarValue = value;
-                base.OnPropertyChanged(nameof(this.ProgressBarValue));
-            }
-
-            get
-            {
-                return
-                  this._ProgressBarValue;
+                base.SetProperty(nameof(ProgressBarValue), value);
             }
         }
+
 
         /// <summary>
         /// Füllt die ProgressBar immer bis zum Max und setzt sie dann auf 0 bzw die entsprechende konstante
@@ -81,6 +86,9 @@ namespace DemoTemplates
             while (true);
 
         }
+
+
+
 
     }
 }

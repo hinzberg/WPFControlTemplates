@@ -18,6 +18,16 @@
                                     BorderBrush="{StaticResource PrimaryBrush}" CornerRadius="2">
             </Border>
         </Grid>
+
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsEnabled" Value="false">
+                <Setter  TargetName="PART_Indicator" Property="Background" Value="{StaticResource EnabledBrush}"/>
+                <Setter TargetName="PART_Indicator" Property="BorderBrush" Value="{StaticResource EnabledBrush}" />
+                <Setter TargetName="PART_Track" Property="BorderBrush" Value="{StaticResource EnabledBrush}" />
+                <Setter TargetName="PART_Track" Property="Background" Value="{StaticResource EnabledBrush}" />
+            </Trigger>
+        </ControlTemplate.Triggers>
+
     </ControlTemplate>
 
 

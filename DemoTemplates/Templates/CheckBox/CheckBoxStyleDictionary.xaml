@@ -60,6 +60,7 @@
             <Trigger Property="IsEnabled" Value="false">
                 <Setter Property="Background" Value="{StaticResource EnabledBrush}" TargetName="Border"/>
                 <Setter Property="BorderBrush" Value="{StaticResource EnabledBrush}" TargetName="Border"/>
+                <Setter TargetName="CheckMark" Property="Fill" Value="{StaticResource SecondaryEnabledBrush}" />
             </Trigger>
         </ControlTemplate.Triggers>
     </ControlTemplate>
