@@ -205,6 +205,8 @@
   <ItemGroup>
     <Resource Include="Resources\MenuIcon.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="sample_screenshot.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
