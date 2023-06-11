@@ -197,7 +197,7 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <None Include="ReadMe.md" />
+    <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="ToDo.txt" />

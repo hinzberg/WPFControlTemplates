@@ -1,4 +1,4 @@
-﻿###  WPF Control Templates - My personal collection
+###  WPF Control Templates - My personal collection
 
 * Free to use for your own applications. 
 * Easy to customize (hopefully)
